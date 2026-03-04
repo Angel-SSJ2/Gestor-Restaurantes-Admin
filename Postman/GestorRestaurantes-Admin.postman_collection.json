@@ -1,0 +1,583 @@
+{
+  "info": {
+    "_postman_id": "4aebffbb-04a7-4c51-9383-599e111beadc",
+    "name": "GestorRestaurantes-Admin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52272201"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "LoginAdmin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@gestor.com\",\r\n    \"password\": \"Admin!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Juan\",\r\n    \"surname\": \"Perez\",\r\n    \"email\": \"juan@correo.com\",\r\n    \"password\": \"Password123!\",\r\n    \"phone\": \"55443322\",\r\n    \"role\": \"CLIENT\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"juan@correo.com\",\r\n    \"password\": \"Password123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ver Perfil",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTdjMTRhM2NjMDU3OGIxNTBjNTY3MiIsInJvbGUiOiJDTElFTlQiLCJpYXQiOjE3NzI2MDE3OTgsImV4cCI6MTc3MjYxMjU5OH0.5a8eh1PMOTBWN3I8148o4KQGy1maj4fieeOjvW1wtlY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar users",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Restaurant",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Los Cebollines 3001\",\r\n    \"address\": \"Zona 10, Ciudad de Guatemala\",\r\n    \"phone\": \"22334455\",\r\n    \"openingHours\": \"08:00 - 22:00\",\r\n    \"category\": \"Comida Mexicana\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/restaurants/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "restaurants",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/restaurants/list",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "restaurants",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Los Cebollines - Sucursal Zona 10\",\r\n    \"phone\": \"22001122\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/restaurants/update/69a7bf65681dae0cd1aab9df",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "restaurants",
+                "update",
+                "69a7bf65681dae0cd1aab9df"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/restaurants/delete/69a7bf65681dae0cd1aab9df",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "restaurants",
+                "delete",
+                "69a7bf65681dae0cd1aab9df"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dish",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Tacos al Pastor\",\r\n    \"description\": \"Orden de 3 tacos con piña, cebolla y cilantro\",\r\n    \"price\": 45,\r\n    \"category\": \"plato fuerte\", \r\n    \"restaurant\": \"69a7bf65681dae0cd1aab9df\",\r\n    \"stock\": 100\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/dishes/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "dishes",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"number\": 5, \"capacity\": 4, \"restaurant\": \"69a7bf65681dae0cd1aab9df\"}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/tables/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "tables",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar por Restaurante",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/tables/list/restaurant/69a7bf65681dae0cd1aab9df",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "tables",
+                "list",
+                "restaurant",
+                "69a7bf65681dae0cd1aab9df"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"number\": 5,\r\n        \"capacity\": 4,\r\n        \"status\": \"ocupada\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/tables/update/69a7c5a76c33568e093672cc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "tables",
+                "update",
+                "69a7c5a76c33568e093672cc"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user\": \"69a7c14a3cc0578b150c5672\",\r\n    \"restaurant\": \"69a7bf65681dae0cd1aab9df\",\r\n    \"table\": \"69a7c5a76c33568e093672cc\",\r\n    \"date\": \"2026-03-10\",\r\n    \"time\": \"19:00\",\r\n    \"guests\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/reservations/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "reservations",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user\": \"69a7c14a3cc0578b150c5672\",\r\n    \"restaurant\": \"69a7bf65681dae0cd1aab9df\",\r\n    \"items\": [\r\n        {\r\n            \"dish\": \"69a7c00a681dae0cd1aab9ec\",\r\n            \"quantity\": 2\r\n        }\r\n    ],\r\n    \"total\": 90\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/orders/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "orders",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTUwNmU5YWJkNjM4MjVmZTcwYzU3ZiIsInJvbGUiOiJBRE1JTl9QTEFURk9STSIsImlhdCI6MTc3MjYwMTE3NCwiZXhwIjoxNzcyNjExOTc0fQ._noHC4R4U09tG_46gPCnWTsl14k_RxLh2ZgtxAcXJcs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Festival del Taco 2026\",\r\n    \"description\": \"Degustación de 10 variedades de tacos con maridaje de bebidas.\",\r\n    \"type\": \"festival\",\r\n    \"date\": \"2026-04-15\",\r\n    \"location\": \"Terraza Los Cebollines\",\r\n    \"price\": 150,\r\n    \"capacity\": 100,\r\n    \"availableSpots\": 100,\r\n    \"restaurant\": \"69a7c51f6c33568e093672c8\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/events/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "events",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
