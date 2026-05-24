@@ -4,9 +4,7 @@ import Table from '../tables/table.model.js';
 // CREATE Registrar una nueva reserva
 export const createReservation = async (req, res) => {
     try {
-        const { restaurant, table, date, guests } = req.body;
-        // Si el token trae el ID lo usamos, si no lo tomamos del body para que el Admin pueda crearle a otros
-        const userId = req.user ? req.user.id : req.body.user;
+        const { restaurant, table, date, guests, user } = req.body;
 
         //  Validar fecha No pasada
         if (new Date(date) < new Date()) {
@@ -30,7 +28,7 @@ export const createReservation = async (req, res) => {
         }
 
         const reservation = new Reservation({
-            user: userId,
+            user: user,
             restaurant,
             table,
             date,

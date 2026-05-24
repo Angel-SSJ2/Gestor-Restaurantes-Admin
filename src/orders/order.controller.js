@@ -3,8 +3,7 @@ import Dish from '../dishes/dish.model.js';
 
 export const createOrder = async (req, res) => {
     try {
-        const { restaurant, items } = req.body;
-        const userId = req.user.id; 
+        const { restaurant, items, user } = req.body;
 
         let total = 0;
         // Validar cada plato y calcular precio real
@@ -25,7 +24,7 @@ export const createOrder = async (req, res) => {
         }
 
         const order = new Order({
-            user: userId,
+            user: user,
             restaurant,
             items,
             totalPrice: total
@@ -43,7 +42,7 @@ export const updateStatus = async (req, res) => {
         const { id } = req.params;
         const { status } = req.body; 
 
-        const allowedStatus = ['PENDIENTE', 'PREPARANDO', 'ENTREGADO'];
+        const allowedStatus = ['PENDIENTE', 'PREPARANDO', 'ENTREGADO', 'CANCELADO'];
         if (!status || !allowedStatus.includes(status.toUpperCase())) {
             return res.status(400).send({ message: 'Estado no válido' });
         }

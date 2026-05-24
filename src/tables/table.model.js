@@ -2,6 +2,7 @@
 
 import mongoose from 'mongoose'
 
+
 const tableSchema = new mongoose.Schema({
     restaurant: {
         type: mongoose.Schema.Types.ObjectId,

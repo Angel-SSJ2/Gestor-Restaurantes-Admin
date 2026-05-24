@@ -1,17 +1,22 @@
 import { Router } from 'express';
-import { addRestaurant, getRestaurants, updateRestaurant, deleteRestaurant } from './restaurant.controller.js';
-import { searchRestaurants } from './restaurant.controller.js';
-
-// restaurant.routes.js (ADMIN)
-import { validateJwt } from '../../middlewares/validate-jwt.js';
-import { isAdmin } from '../../middlewares/validate-roles.js';
+import { 
+    addRestaurant, 
+    getRestaurants, 
+    getRestaurantById,
+    updateRestaurant, 
+    deleteRestaurant, 
+    searchRestaurants 
+} from './restaurant.controller.js';
+import { uploadProfilePicture } from '../../middlewares/multer-upload.js';
 
 const api = Router();
 
-api.post('/add', [validateJwt, isAdmin], addRestaurant);
-api.put('/update/:id', [validateJwt, isAdmin], updateRestaurant);
-api.delete('/delete/:id', [validateJwt, isAdmin], deleteRestaurant);
-api.get('/list', getRestaurants); 
+// Rutas Estándar (Recomendado)
+api.get('/', getRestaurants);
+api.get('/:id', getRestaurantById);
+api.post('/', uploadProfilePicture.single('image'), addRestaurant);
+api.put('/:id', uploadProfilePicture.single('image'), updateRestaurant);
+api.delete('/:id', deleteRestaurant);
 api.post('/search', searchRestaurants);
 
 export default api;

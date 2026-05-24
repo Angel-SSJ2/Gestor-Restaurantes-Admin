@@ -14,6 +14,7 @@ export const initializeAdmin = async () => {
                 surname: 'Principal',
                 email: 'admin@gestor.com',
                 password: password,
+                phone: '12345678',
                 role: 'ADMIN_PLATFORM'
             });
 

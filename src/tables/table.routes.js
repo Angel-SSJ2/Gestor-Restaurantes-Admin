@@ -1,13 +1,12 @@
 import { Router } from 'express';
-import { createTable, getTablesByRestaurant, updateTable, deleteTable } from './table.controller.js';
-import { validateJwt } from '../../middlewares/validate-jwt.js';
-import { isAdmin } from '../../middlewares/validate-roles.js';
+import { createTable, getTables, updateTable, deleteTable } from './table.controller.js';
 
 const api = Router();
 
-api.post('/add', [validateJwt, isAdmin], createTable);
-api.get('/list/restaurant/:restaurantId', [validateJwt], getTablesByRestaurant);
-api.put('/update/:id', [validateJwt, isAdmin], updateTable);
-api.delete('/delete/:id', [validateJwt, isAdmin], deleteTable);
+
+api.post('/add', createTable);
+api.get('/', getTables);
+api.put('/update/:id', updateTable);
+api.delete('/delete/:id', deleteTable);
 
 export default api;

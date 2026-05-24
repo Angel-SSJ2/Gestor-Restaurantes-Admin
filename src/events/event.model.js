@@ -17,16 +17,11 @@ const eventSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true,
-        enum: ['cena temática', 'festival', 'degustación', 'taller']
+        enum: ['cena temática', 'festival', 'degustación', 'oferta']
     },
     date: {
         type: Date,
         required: [true, 'La fecha es obligatoria']
-    },
-    location: {
-        type: String,
-        required: [true, 'La ubicación es obligatoria'],
-        trim: true
     },
     price: {
         type: Number,
@@ -53,6 +48,10 @@ const eventSchema = new mongoose.Schema({
         default: true
     },
     image: {
+        type: String,
+        default: null
+    },
+    imagePublicId: {
         type: String,
         default: null
     }
