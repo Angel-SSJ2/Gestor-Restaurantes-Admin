@@ -12,6 +12,7 @@ export const initializeAdmin = async () => {
             const admin = new User({
                 name: 'Admin',
                 surname: 'Principal',
+                username: 'admin',
                 email: 'admin@gestor.com',
                 password: password,
                 phone: '12345678',

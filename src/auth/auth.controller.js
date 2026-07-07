@@ -4,13 +4,13 @@ import bcrypt from 'bcryptjs'
 
 export const register = async (req, res) => {
     try {
-        const { name, surname, username, email, password, phone, role } = req.body
+        const { name, surname, email, password, phone, role } = req.body
 
-        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+        const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ 
                 success: false, 
-                message: 'El correo electrónico o nombre de usuario ya está registrado' 
+                message: 'El correo electrónico ya está registrado' 
             });
         }
 
@@ -19,7 +19,6 @@ export const register = async (req, res) => {
         const newUser = await User.create({
             name,
             surname,
-            username,
             email,
             password: hashedPassword,
             phone,
@@ -34,7 +33,6 @@ export const register = async (req, res) => {
                 _id: newUser._id,
                 name: newUser.name,
                 surname: newUser.surname,
-                username: newUser.username,
                 email: newUser.email,
                 phone: newUser.phone,
                 role: newUser.role
@@ -71,7 +69,7 @@ export const login = async (req, res) => {
 export const getMyProfile = async (req, res) => {
     try {
         const { id } = req.params; 
-        const user = await User.findById(id).select('name surname username email role phone status');
+        const user = await User.findById(id).select('name surname email role phone status');
 
         if (!user) {
             return res.status(404).json({
