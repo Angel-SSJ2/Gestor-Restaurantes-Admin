@@ -8,7 +8,7 @@ const userSchema = Schema({
     phone:{ type: String, required: true },
     role: { 
         type: String, 
-        enum: ['ADMIN_PLATFORM', 'ADMIN_RESTAURANT', 'CLIENT'], 
+        enum: ['ADMIN_ROLE', 'WAITER_ROLE', 'KITCHEN_ROLE', 'CLIENT'], 
         default: 'CLIENT' 
     },    
     status: { type: Boolean, default: true }
