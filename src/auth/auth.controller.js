@@ -56,8 +56,12 @@ export const login = async (req, res) => {
             success: true, 
             message: `Bienvenido ${user.name}`,
             user: { 
-                id: user._id, 
+                id: user._id,
+                _id: user._id,
+                name: user.name,
+                surname: user.surname,
                 email: user.email,
+                phone: user.phone,
                 role: user.role 
             } 
         })
